@@ -2,7 +2,6 @@ package com.example.my_dialer
 import android.content.Intent
 import android.net.Uri
 import androidx.core.content.ContextCompat.startActivity
-import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.PluginRegistry.Registrar
 
 import androidx.annotation.NonNull
