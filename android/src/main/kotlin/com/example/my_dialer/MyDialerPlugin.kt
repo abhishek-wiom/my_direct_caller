@@ -25,11 +25,17 @@ class MyDialerPlugin: FlutterPlugin, MethodCallHandler {
     if (call.method == "getPlatformVersion") {
       result.success("Android ${android.os.Build.VERSION.RELEASE}")
     } else if (call.method == "callNumber") {
-      val number = call.argument<String>("number")
-      val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:$number"))
-      intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-      startActivity(context, intent, null)
-      result.success(null)
+      number = call.argument("number")
+      Log.d("Caller", "Message")
+      number = number!!.replace("#".toRegex(), "%23")
+      if (!number!!.startsWith("tel:")) {
+        number = String.format("tel:%s", number)
+      }
+      if (permissionStatus != 1) {
+        requestsPermission()
+      } else {
+        result.success(callNumber(number))
+      }
     } else {
       result.notImplemented()
     }
