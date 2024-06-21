@@ -14,10 +14,10 @@ class MyDialerPlugin: FlutterPlugin, MethodCallHandler {
   ///
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
-  private lateinit var channel : MethodChannel
-
   override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "my_dialer")
+    val channel = MethodChannel(
+      binding.binaryMessenger, "my_dialer"
+    )
     channel.setMethodCallHandler(this)
   }
 
