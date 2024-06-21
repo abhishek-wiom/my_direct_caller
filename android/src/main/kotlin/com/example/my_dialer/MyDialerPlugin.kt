@@ -2,15 +2,11 @@ package com.example.my_dialer
 import android.content.Intent
 import android.net.Uri
 import androidx.core.content.ContextCompat.startActivity
-import io.flutter.plugin.common.PluginRegistry.Registrar
-
-import androidx.annotation.NonNull
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
-import io.flutter.plugin.common.MethodChannel.Result
 
 /** MyDialerPlugin */
 class MyDialerPlugin: FlutterPlugin, MethodCallHandler {
